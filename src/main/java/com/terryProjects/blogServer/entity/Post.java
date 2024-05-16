@@ -1,10 +1,9 @@
 package com.terryProjects.blogServer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 // @Entity -> Signals the JPA and tells them to treat this class as a table in the database
 @Entity
@@ -20,7 +19,21 @@ public class Post {
 
     private String name;
 
+    // @Column -> Used to define the length of a column
+    @Column (length = 5000)
     private String content;
+
+    private String postedBy;
+
+    private String img;
+
+    private String date;
+
+    private String likeCount;
+
+    private String viewCount;
+
+    private List<String> tags;
 
 
 
