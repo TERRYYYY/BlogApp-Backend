@@ -3,6 +3,7 @@ package com.terryProjects.blogServer.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 // @Entity -> Signals the JPA and tells them to treat this class as a table in the database
@@ -27,7 +28,7 @@ public class Post {
 
     private String img;
 
-    private String date;
+    private Date date;
 
     private String likeCount;
 
@@ -37,4 +38,30 @@ public class Post {
 
 
 
+
+
+    //Properties
+    public void setViewCount(String viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public String getViewCount() {
+        return viewCount;
+    }
+
+    public void setLikeCount(String likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public String getLikeCount() {
+        return likeCount;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }
