@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 // @Service -> Used with classes that provide business functionalities
 @Service
@@ -28,6 +29,11 @@ public class PostServiceImplementation implements PostService{
 
         // Save in the DB
         return postRepository.save(post);
+    }
+
+    // Method that gets all posts
+    public List<Post> getAllPosts(){
+        return postRepository.findAll();
     }
 
 }
