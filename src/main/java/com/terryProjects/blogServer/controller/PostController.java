@@ -17,6 +17,7 @@ import java.util.List;
 // @RequestMapping -> Handles requests of any HTTP method
 @RequestMapping ("/api/posts")
 
+// CrossOrigin -> Used when trying to fetch or interact with resources from another domain
 @CrossOrigin(origins = "*")
 public class PostController {
 
@@ -26,7 +27,7 @@ public class PostController {
 
     //Let's write our endpoint
 
-    //Method to create new posts
+    //Endpoint To Create New Posts
     //This method will return a response entity -> Represents the whole HTTP response; status code, headers & body
     @PostMapping
     public ResponseEntity<Post> createPost (@RequestBody Post post){ //@Requestbody ->Extracts data from HTTP request data and automatically reconstructs it into a java object

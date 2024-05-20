@@ -21,4 +21,37 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
         private Post post;
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
+    }
+
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 }

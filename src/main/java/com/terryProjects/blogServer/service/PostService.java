@@ -5,7 +5,7 @@ import com.terryProjects.blogServer.entity.Post;
 import java.util.List;
 
 public interface PostService {
-    //Sav Posts
+    //Save Posts
     Post savePost (Post post);
 
     //Get All Posts
