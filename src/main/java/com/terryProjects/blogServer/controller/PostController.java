@@ -40,7 +40,7 @@ public class PostController {
         }
     }
 
-    //Method to get all posts
+    //Endpoint To Get All Posts
     @GetMapping  // -> Handles GET request methods
     public ResponseEntity<List<Post>> getAllPosts  (){
         try{
@@ -50,7 +50,7 @@ public class PostController {
         }
     }
 
-    //Method to get post by ID
+    //Endpoint To Get Post By ID
     @GetMapping("/{postId}")
     public ResponseEntity<?> getPostById (@PathVariable Long postId){
         try{
@@ -62,14 +62,32 @@ public class PostController {
         }
     }
 
-    //Method to get Post's likes
+    //Endpoint To Get Post's Likes
     @PutMapping("/{postId}/like")
-    public ResponseEntity<?> likePost(@PathVariable long postId){
+    public ResponseEntity<?> likePost(@PathVariable Long postId){
         try{
             postService.likePost(postId);
             return ResponseEntity.ok(new String[]{"Post Liked Successfully"});
         } catch (EntityNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
+    }
+
+
+    //Endpoint to update posts
+    @PutMapping("/{postId}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long postId, @RequestBody Post post){
+        Post existingPost = postService.getPostById(postId);
+        if (existingPost == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        existingPost.setName(post.getName());
+        existingPost.setContent(post.getContent());
+        existingPost.setPostedBy(post.getPostedBy());
+        existingPost.setImg(post.getImg());
+
+        Post updatePost = postService.updatePost(existingPost);
+        return ResponseEntity.ok(updatePost);
     }
 }

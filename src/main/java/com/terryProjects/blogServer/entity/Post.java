@@ -68,4 +68,55 @@ public class Post {
     public Date getDate() {
         return date;
     }
+
+
+
+
+
+
+    public void setName(String name) {
+
+        this.name = name;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+
+    public void setImg(String img) {
+
+        this.img = img;
+    }
+
+    public String getImg() {
+
+        return img;
+    }
+
+
+    public void setContent(String content) {
+
+        this.content = content;
+    }
+
+    public String getContent() {
+
+        return content;
+    }
+
+
+    public void setPostedBy(String postedBy) {
+
+        this.postedBy = postedBy;
+    }
+
+    public String getPostedBy() {
+
+        return postedBy;
+    }
+
+
+
 }

@@ -16,4 +16,7 @@ public interface PostService {
 
     // Get Post's Likes
     void likePost(Long postId);
+
+    //Update post
+    Post updatePost(Post post);
 }

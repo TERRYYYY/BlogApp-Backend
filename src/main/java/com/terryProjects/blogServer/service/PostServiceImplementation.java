@@ -66,4 +66,10 @@ public class PostServiceImplementation implements PostService{
         }
     }
 
+
+    //Method to Update Post
+    public Post updatePost(Post post){
+        return postRepository.save(post);
+    }
+
 }
