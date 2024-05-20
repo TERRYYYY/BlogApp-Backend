@@ -54,4 +54,16 @@ public class PostServiceImplementation implements PostService{
         }
     }
 
+    //Method to get and update the likes of a post
+    public void likePost(Long postId){
+        Optional<Post> optionalPost = postRepository.findById(postId);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+            post.setLikeCount(post.getLikeCount() + 1);
+            postRepository.save(post);
+        } else{
+            throw new EntityNotFoundException("Post Not Found With ID: " + postId);
+        }
+    }
+
 }

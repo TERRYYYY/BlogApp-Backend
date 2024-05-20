@@ -13,4 +13,7 @@ public interface PostService {
 
     //Get Post By Post Id
     Post getPostById(Long postId);
+
+    // Get Post's Likes
+    void likePost(Long postId);
 }
