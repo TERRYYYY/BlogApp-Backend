@@ -30,9 +30,9 @@ public class Post {
 
     private Date date;
 
-    private String likeCount;
+    private int likeCount;
 
-    private String viewCount;
+    private int viewCount;
 
     private List<String> tags;
 
@@ -41,19 +41,23 @@ public class Post {
 
 
     //Properties
-    public void setViewCount(String viewCount) {
+    public void setViewCount(int viewCount) {
+
         this.viewCount = viewCount;
     }
 
-    public String getViewCount() {
+    public int getViewCount() {
+
         return viewCount;
     }
 
-    public void setLikeCount(String likeCount) {
+    public void setLikeCount(int likeCount) {
+
         this.likeCount = likeCount;
     }
 
-    public String getLikeCount() {
+    public int getLikeCount() {
+
         return likeCount;
     }
 

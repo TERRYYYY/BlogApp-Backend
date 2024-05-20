@@ -2,6 +2,7 @@ package com.terryProjects.blogServer.controller;
 
 import com.terryProjects.blogServer.entity.Post;
 import com.terryProjects.blogServer.service.PostService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -45,6 +46,18 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.OK).body(postService.getAllPosts());
         } catch(Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    //Method to get post by ID
+    @GetMapping("/{postId}")
+    public ResponseEntity<?> getPostById (@PathVariable Long postId){
+        try{
+            Post post = postService.getPostById(postId);
+            return ResponseEntity.ok(post);
+        }
+        catch(EntityNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }
