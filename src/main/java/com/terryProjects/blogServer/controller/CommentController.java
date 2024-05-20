@@ -30,4 +30,14 @@ public class CommentController {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
         }
     }
+
+    //Endpoint to get all comments of each comment
+    @GetMapping("/comments/{postId}")
+    public ResponseEntity<?> getCommentsById(@PathVariable Long postId){
+        try{
+            return ResponseEntity.ok(commentService.getCommentByPostId(postId));
+        } catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something Went Wrong");
+        }
+    }
 }
